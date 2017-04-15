@@ -6,11 +6,11 @@
     $celular = $_POST['tel'];
     $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
-    require_once 'conexao';
+    require_once 'conexao.php';
     $codigoSql = "INSERT INTO usuarios (usuario, senha, email, celular) VALUES ('$usuario', '$senhaCriptografada', '$email', '$celular')";
-    $query = mysqli_query($conexao, $codigoSql);
+    $resultado = mysqli_query($conexao, $codigoSql);
 
-    if ($query){
+    if ($resultado){
       $mensagem = "1";
     }else{
       $mensagem = "0";
